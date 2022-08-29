@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <title>VAT FInder</title>
+    <link href="{{ asset('css/main.css') }}" rel="stylesheet" type="text/css"/>
+    <script src="{{ asset('js/main.js')}}"></script>
+</head>
+<body>
+    <div class="fundo">
+        <div class="calculator">
+        	<div id="calculatorDiv">
+	            <h1>VAT Calculator</h1>
+				<input type="text" name="inputField" id="inputField" value="" readonly>
+	            <table class="table">
+
+	                <tr>
+	                    <td><button type="button" class="botao" onclick="insert('7')">7</button></td>
+	                    <td><button type="button" class="botao" onclick="insert('8')">8</button></td>
+	                    <td><button type="button" class="botao" onclick="insert('9')">9</button></td>
+
+	                </tr>
+	                <tr>
+	                    <td><button type="button" class="botao" onclick="insert('4')">4</button></td>
+	                    <td><button type="button" class="botao" onclick="insert('5')">5</button></td>
+	                    <td><button type="button" class="botao" onclick="insert('6')">6</button></td>
+
+	                </tr>
+	                <tr>
+	                    <td><button type="button" class="botao" onclick="insert('1')">1</button></td>
+	                    <td><button type="button" class="botao" onclick="insert('2')">2</button></td>
+	                    <td><button type="button" class="botao" onclick="insert('3')">3</button></td>                    
+	                </tr>
+	                <tr>                    
+	                    <td><button type="button" class="botao" onclick="clean()">C</button></td>
+	                    <td><button type="button" class="botao" onclick="insert('0')">0</button></td>                    
+	                    <td><button type="button" class="botao" onclick="insert('.')">.</button></td>
+	                </tr>
+	            </table>
+
+				<label>Rate of VAT</label><br>
+				<div class="row">
+					<input type="range" min="10" max="25" id="rangeVat" value="20"  step="0.5" onchange="rateOfVat()">           
+					<span id="vatValue">%</span><br>
+					<button class="button" onclick="includeVAT()">Add VAT</button>
+					<button class="button" onclick="excludeVAT()">Remove VAT</button>          
+				</div>
+			</div>
+			<div id="resultDiv" style="display: none;">
+				<label>Net Amount(excluding VAT)</label><br>
+				<input type="text" class="inputField"  name="netAmount" id="netAmount" value="" readonly><br>
+				<label>VAT (at<span id="rateVat"></span>)</label><br>
+				<input type="text" class="inputField" name="vat" id="vat" value="" readonly><br>
+				<label>Gross Amount(including VAT)</label><br>
+				<input type="text" class="inputField" name="grossAmount" id="grossAmount" value="" readonly><br>
+				<label>Amount(Input Value)</label><br>
+				<input type="text" class="inputField" name="inputGiven" id="inputGiven" value="" readonly><br><br>
+
+				<button  type="button" class="button" onclick="startNew()"> Start New </button>
+				<a href="{{ path('export') }}" target="_blank"><button   type="button" class="button" > Export Results </button></a>
+			</div>	
+
+        </div>
+
+    </div>
+
+</body>
+</html>    

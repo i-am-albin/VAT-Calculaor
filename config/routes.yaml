@@ -1,0 +1,7 @@
+#index:
+#    path: /
+#    controller: App\Controller\DefaultController::index
+
+export:
+  path: /export
+  controller: App\Controller\VatMasterController::export
